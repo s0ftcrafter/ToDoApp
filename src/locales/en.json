@@ -1,0 +1,14 @@
+{
+  "title": "ToDoApp",
+  "search": "Search",
+  "allNotes": "All notes",
+  "noNotes": "No notes",
+  "list": "List",
+  "grid": "Sheet",
+  "edit": "Edit",
+  "remove": "Remove",
+  "add": "Add",
+  "change": "Change",
+  "cancel": "Cancel",
+  "notes": "note"
+}

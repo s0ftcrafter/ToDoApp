@@ -1,0 +1,173 @@
+@use "./variables.scss" as *;
+@use "./mixin.scss" as *;
+
+.notes {
+  padding-bottom: 100px;
+
+  @include respond-to(md) {
+    padding-bottom: 90px;
+  }
+
+  &__top {
+    @include flexBetween();
+    gap: 12px;
+    flex-wrap: wrap;
+
+    &-title {
+      @include text(22px, #323232);
+      font-family: $MainFont;
+
+      @include respond-to(md) {
+        font-size: 18px;
+      }
+
+      @include respond-to(sm) {
+        font-size: 16px;
+        flex: 1;
+        min-width: 120px;
+      }
+    }
+
+    &-btn {
+      background: linear-gradient(
+        0deg,
+        rgba(103, 80, 164, 0.11),
+        rgba(103, 80, 164, 0.11)
+      );
+      box-shadow: 0px 4px 8px 3px #00000026;
+      width: 120px;
+      height: 56px;
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      flex-shrink: 0;
+
+      @include respond-to(sm) {
+        width: auto;
+        height: 48px;
+        padding: 12px 16px;
+        gap: 10px;
+      }
+
+      &_span {
+        font-family: $MainFont;
+        @include text(14px, $purple, 500);
+
+        @include respond-to(sm) {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+
+  &__list {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+
+    @include respond-to(lg) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @include respond-to(md) {
+      margin-top: 20px;
+      gap: 16px;
+    }
+
+    @include respond-to(sm) {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    &.active {
+      grid-template-columns: 1fr;
+    }
+    &-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+      background: linear-gradient(
+        0deg,
+        rgba(103, 80, 164, 0.05),
+        rgba(103, 80, 164, 0.05)
+      );
+      border-radius: 16px;
+      box-shadow: 0px 1px 3px 1px #00000026;
+      padding: 16px;
+      &_top {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &.active {
+          flex-direction: row;
+          align-items: center;
+        }
+        &-title {
+          @include text(16px, $black, 500);
+          font-family: $MainFont;
+          word-break: break-word;
+          overflow-wrap: anywhere;
+        }
+        &-date {
+          @include text(14px, $gray);
+          font-family: $MainFont;
+        }
+      }
+      &_desc {
+        @include text(14px, #49454f);
+        font-family: $MainFont;
+        flex: 1 1 auto;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        line-height: 1.5;
+      }
+
+      &_bottom {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: 8px;
+
+        @include respond-to(sm) {
+          justify-content: stretch;
+
+          &-btn {
+            flex: 1;
+          }
+        }
+
+        &-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          padding: 12px;
+          border-radius: 8px;
+
+          @include respond-to(sm) {
+            padding: 10px 8px;
+            gap: 6px;
+          }
+
+          & span {
+            font-family: $MainFont;
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+
+            @include respond-to(sm) {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
